@@ -258,3 +258,83 @@ func findNum(arr array : [Int] , key ele : Int?) -> Int? {
 var t : Int? = 54;
 print(findNum(arr: num, key: t) ?? " element not found !")
 
+// *******************************
+// Multiple If-let unwraping
+var isUserNew : Bool? = true
+var isUserRegistred : Bool? = true
+var userFavMovies : String? = "MArvels"
+
+func checkUserExist() -> Bool{
+    if let userNew = isUserNew ,let isUserRegistred { // Multiple if - let
+        print("403",type(of: userNew))
+        
+        var status = getUserStatus(userNew : userNew ,isRegistred : isUserRegistred )
+        print("user status is \(status)")
+        
+        if let favMovies = userFavMovies { // layering of if let
+            type(of: favMovies)
+            getUserMovies(userMovies : favMovies)
+        }else{
+            return false
+        }
+    }
+    return false
+}
+// using guard let
+func checkUserExist2() -> Bool{
+    guard let userNew = isUserNew else {
+        print("user is not new")
+        return false
+    }
+    
+    guard let isUserRegistred else {
+        print("User is new but not registred ")
+        return false
+    }
+    
+    guard let userFavMovies else{
+        print("user new status \(userNew) and registred status \(isUserRegistred) but fav movies are not found")
+        return false
+    }
+    
+    print("user is registred and fav movies are \(userFavMovies)")
+    return true
+}
+
+checkUserExist2()
+
+func getUserStatus(userNew : Bool, isRegistred : Bool) -> Bool {
+    if userNew && isRegistred {
+        return true
+    } else {
+        return false
+    }
+}
+
+func getUserMovies(userMovies : String ){
+    print("User Movies are \(userMovies)")
+}
+checkUserExist()
+
+var str : String? = "text"
+var str2 : String? = ""
+
+func getStringFisrtUpperCase (){
+    var p = str?.first?.uppercased(); // optional chaining
+//    Here p can be optional
+    var q = str2?.first?.uppercased()
+//    print(q) // nil
+    guard let q else{
+        print("Empty String")
+        guard let p else{
+            print("Null String")
+            return
+        }
+        print(p)
+        return
+    }
+    
+}
+getStringFisrtUpperCase()
+
+
