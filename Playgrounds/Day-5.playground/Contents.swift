@@ -291,3 +291,41 @@ func printMathResult(_ mathFunction: (Int, Int) -> Int, _ a: Int, _ b: Int) {
     print("Result: \(mathFunction(a, b))")
 }
 printMathResult(addTwoInts, 3, 5)
+
+func abc() -> Bool {
+    var title : String? = "Ok"
+    
+    guard title == "ok" else{
+        return false;
+    }
+    return true
+}
+print(abc())
+
+//Functions having, different types and no. of parameters can have same name
+
+func calValue(){
+    
+}
+func calValue(value : Float,Value: Int){
+    
+}
+
+// Calculated Values:
+var num12 = 12
+var num22 = 13
+
+func calValue(value : Int, value2: Int) -> Int{
+    return value + value2
+}
+
+calValue(value: num12, value2: num22)
+
+// or calculated value
+// calculated variable are basically functions
+// generally good for when you don't need to pass data in function
+var calculatedvalue : Int {
+    return num12 + num22
+}
+
+
