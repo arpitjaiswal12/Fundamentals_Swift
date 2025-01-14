@@ -12,11 +12,11 @@ struct OrderedDictionary {
         
         var keyPresence : Any? = dictionary[key]
         
-        // if present already then modify its defined value with                                       new value
+        // if present already then modify its defined value with new value
         if let Key = keyPresence{
             dictionary[key] = value
 
-        } else {                                       //if key is not present then add that key wiht                                             value in dictionary as a new pair and append that                                          key in array as well
+        } else {                                       //if key is not present then add that key wiht value in dictionary as a new pair and append that                                          key in array as well
             dictionary[key] = value
             keys.append(key)
         }
