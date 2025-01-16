@@ -430,19 +430,6 @@ struct Product : Item , Discountable {
     
 }
 
-//struct Service : E {
-//    var name: String
-//    var price: Double
-//    
-//    
-//}
-
-//protocol Cart {
-//    associatedtype ItemType : Item
-//    func addItem(_ item: ItemType)
-//    var total : Double { get }
-//}
-
 class SomeClass {
     var varOne: Int = 0
     
