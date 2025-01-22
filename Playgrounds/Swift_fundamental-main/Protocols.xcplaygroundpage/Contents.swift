@@ -467,7 +467,22 @@ struct Employee {
     var mob: Int
 }
 
+//MARK: Optional protocol:
+@objc protocol CounterDataSource {
+    @objc optional func increment(forCount count: Int) -> Int
+    @objc optional var fixedIncrement: Int { get }
+}
+optional protocol without optional :
+protocol ABC{
+    func doSomething () 
+}
 
-
-
+extension ABC {
+    func doSomething() {
+    }
+}
+// know the function doSomething is optional for class XYZ as its already defined in its extended type 
+// But XYZ can still override this function is required but not necessary 
+class XYZ : ABC {
+}
 
